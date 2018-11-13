@@ -1,0 +1,17 @@
+&mode
+  Nat=$Natoms
+  Nfree=$Nfree
+  Linear=$Linear
+  typ='NWC'
+  path='nwchem.out'
+  Sym='C1'
+  ModeSym= $ModeSym
+/
+&airun
+  RunTyp='WRT'
+  Com(1)='$Natoms'
+  Com(2)=' '
+  Com(3)='sindo:geometry'
+  Com(4)='sindo:end'
+/
+&mkrpt MR=$MR Nfree=$Nfree vmax=$Nbasis /

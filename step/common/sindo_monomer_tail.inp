@@ -1,0 +1,34 @@
+/
+&sys maxmem=600/
+&vib MR=$MR vmax_base=11
+vscf=.t. vci=.t. vav=.f. vpt=.t. /
+&vscf Maxitr=50 Ethresh=1.D-06
+nstate= 8
+state=
+ 0 0 0 0 
+ 1 0 0 0
+ 0 1 0 0
+ 2 0 0 0
+ 0 2 0 0
+ 1 1 0 0 
+ 0 0 1 0
+ 0 0 0 1
+/
+&vpt
+nstate= 8
+state=
+ 0 0 0 0 
+ 1 0 0 0 
+ 0 1 0 0
+ 2 0 0 0
+ 0 2 0 0 
+ 1 1 0 0 
+ 0 0 1 0 
+ 0 0 0 1 
+/
+&vci nstate=  20
+maxsum=  15 ncup=4 /
+&vav r_v=.t. /
+ &airun runtyp='VIB'/
+ &gen ateqb=.t. storepot=.t. printall=.t. quartic=.f. vciorder=1000 Method='qVSCF'/
+

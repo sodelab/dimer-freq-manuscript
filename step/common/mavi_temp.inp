@@ -1,0 +1,42 @@
+!Input for the molecule
+&mol
+ 
+!Number of vibrational modes
+Nfree= $Nfree
+
+/
+
+!Input for the vibrational calculation
+&vib
+
+!calculation types
+!state specific VSCF
+vscf=.t.
+vvscf=.t.
+xvscf=.t.
+
+!perturbation on top of harmonic aproximation
+vpt=.t.
+
+!perturbation on top of VSCF solution
+vmp2=.t.
+ssvmp=.t.
+vci=.t.
+vscfci=.t.
+
+!n-Mode Representation 
+MR=$MR
+
+!number of basis functions for each mode
+vmax_base=$NBASIS
+
+/
+
+&vci
+
+restricted=.t.
+ncup=4
+maxenergy=$MAXNRG
+VCIprint=.t.
+
+/
