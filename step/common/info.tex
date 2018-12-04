@@ -1,0 +1,199 @@
+
+\documentclass[aip,jcp,showpacs,superscriptaddress,groupedaddress]{revtex4-1}  % for review and submission
+%\documentclass[aip,jcp,preprint]{revtex4-1}
+%\documentclass[journal=jctcce,manuscript=article]{achemso}
+
+
+\usepackage{graphicx}  % needed for figures
+\usepackage{dcolumn}   % needed for some tables
+\usepackage{bm}        % for math
+\usepackage{amssymb}   % for math
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{color,soul}
+\usepackage{braket}
+
+%\usepackage{authblk}
+
+% avoids incorrect hyphenation, added Nov/08 by SSR
+\hyphenation{ALPGEN}
+\hyphenation{EVTGEN}
+\hyphenation{PYTHIA}
+
+\begin{document}
+
+\newcommand*{\citen}[1]{%
+  \begingroup
+    \romannumeral-`\x % remove space at the beginning of \setcitestyle
+    \setcitestyle{numbers}%
+    \cite{#1}%
+  \endgroup   
+}
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-1.5ex]{0pt}{0pt}}   % = `bottom' strut
+
+% the following line is for submission, including submission to the arXiv!!
+\hspace{5.2in} \mbox{CalStateLA-Pub-01/xxx-E}
+
+\title{Supporting Information for: Anharmonic vibrational structure of the carbon dioxide dimer with a many-body potential energy surface.}
+
+\author{Samuel \surname{Maystrovsky}}
+\affiliation{Department of Chemistry, Biochemistry and Physics, The University of Tampa, 401 West Kennedy Boulevard, Tampa, Florida 33606, USA}
+\author{Murat \surname{Ke\c{c}eli}}
+\affiliation{Computational Science Division, Argonne National Laboratory, Lemont, Illinois, 60439}
+\author{Olaseni \surname{Sode}}\email[The author to whom the correspondence should be addressed. Electronic mail: ] {osode@calstatela.edu}
+\affiliation{Department of Chemistry, Biochemistry and Physics, The University of Tampa, 401 West Kennedy Boulevard, Tampa, Florida 33606, USA}
+\affiliation{Department of Chemistry and Biochemistry, California State University, Los Angeles, 5151 State University Drive, Los Angeles, 90032, USA}
+
+\date{\today}
+
+
+\pacs{}
+
+\maketitle
+
+\section[S1]{Quartic Force Fields}
+%\section{\label{sec:qff}S1 Quartic Force Fields}
+
+\begin{table}[]
+\centering
+\caption{The quartic force field of the CO$_2$ monomer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_monomer}
+\begin{ruledtabular}
+\begin{tabular}{ccc}
+Force constant & Value        & Unit         \\
+\hline \Tstrut
+%$g_1$             & $-2.64E-07$    & $E_{\rm h}\ {\rm \AA}^{-1}\ {\rm u}^{-1/2}$ \\
+$h_{22}=h_{\bar{2}\bar{2}}$        & $0.061211$  & $E_{\rm h}\ {\rm \AA}^{-2}\ {\rm u}^{-1}$   \\
+$h_{11}$            & $0.24710$   & $E_{\rm h}\ {\rm \AA}^{-2}\ {\rm u}^{-1}$   \\
+$h_{33}$            & $0.77413$  & $E_{\rm h}\ {\rm \AA}^{-2}\ {\rm u}^{-1}$   \\
+$t_{111}$           & $0.30760$   & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+%$t_{333}$           & $8.02E-07$     & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+$u_{1111}$          & $0.29234$  & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$ \\
+$u_{2222}=u_{\bar{2}\bar{2}\bar{2}\bar{2}}$    & $0.11415$  & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$ \\
+$u_{3333}$          & $3.7009$  & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$    \\
+$t_{122}=t_{1\bar{2}\bar{2}}$      & $-0.087258$ & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+%$t_{322}=t_{322}$      & $-4.66E-06$    & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+%$t_{311}$           & $-2.06E-06$    & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+$t_{133}$           & $1.0291$  & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+%$t_{311}$           & $-2.06E-06$    & $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$ \\
+$u_{1333}$          & $-0.0066063$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$    \\
+$u_{3111}$          & $-0.0029963$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$    \\
+$u_{1122}=u_{11\bar{2}\bar{2}}$    & $-0.17747$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$  \\
+$u_{1133}$          & $1.0579$  & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$    \\
+$u_{22\bar{2}\bar{2}}$          & $0.037833$  & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$    \\
+$u_{2233}=u_{\bar{2}\bar{2}33}$    & $-0.72250$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$    \\
+$u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$   
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+
+\section{\label{sec:vibrations}S2 Vibrational Frequencies}
+
+
+
+\subsection{\label{sec:monomer-freq}CO$_2$ Monomer}
+
+\begin{table}[b]
+\caption{The vibrational energy levels for the CO$_2$ monomer obtained at the harmonic approximation and VSCF approximations with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?monomer-VSCF?
+\end{tabular}
+\end{ruledtabular}
+\label{table:monomer-vscf}
+\end{table}  
+
+\begin{table}[b]
+\caption{The vibrational energy levels for the CO$_2$ monomer obtained at the harmonic approximation and VMP2 approximations with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?monomer-VMP2?
+\end{tabular}
+\end{ruledtabular}
+\label{table:monomer-vmp2}
+\end{table}
+
+\begin{table}[b]
+    \caption{The vibrational configuration interaction energy levels for the CO$_2$ monomer obtained at the quartic force field (QFF) and Gauss-Hermite quadrature (Grid) approximations with one-, two- and three-mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?monomer-VCI?
+\end{tabular}
+\end{ruledtabular}
+\label{table:monomer-vci}
+\end{table}
+
+\subsection{\label{sec:dimer-freq}CO$_2$ Dimer}
+
+\begin{table}[b]
+\caption{The vibrational energy levels for the CO$_2$ dimer obtained at the VSCF approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?intra-VSCF?
+\end{tabular}
+\end{ruledtabular}
+\label{table:intra-vscf}
+\end{table}
+
+\begin{table}[b]
+\caption{The vibrational energy levels for the CO$_2$ dimer obtained at the VMP2 approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?intra-VMP2?
+\end{tabular}
+\end{ruledtabular}
+\label{table:intra-vmp2}
+\end{table}
+
+
+\begin{table}[b]
+\caption{The vibrational energy levels for the CO$_2$ dimer obtained at the VCI approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?intra-VCI?
+\end{tabular}
+\end{ruledtabular}
+\label{table:intra-vci}
+\end{table}
+
+
+
+\section{\label{sec:reproduce}S3 Accessibility and Reproducibility}
+
+
+
+\section*{\label{sec:level1}Supplementary Material}
+See supplementary material for the complete QFF force constants, VSCF, VMP2 and VCI vibrational frequencies and CI coefficients. 
+
+
+%\input acknowledgement.tex   % input acknowledgement
+
+\bibliographystyle{apsrev4-1}
+
+\bibliography{anharmonic_v6}
+
+%\bibliography{aipsamp}
+\end{document}
+%
+% ****** End of file template.aps ******

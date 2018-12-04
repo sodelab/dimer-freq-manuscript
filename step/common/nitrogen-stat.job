@@ -1,0 +1,41 @@
+# stationary point optimization
+JOBTYPE = JOBTYPE_STAT
+
+# Optimizing MINimum geometry
+STAT_TYPE = MIN
+
+# Use Z-matrix coordinate system
+COORD = ZMAT
+%ZMAT
+C1
+O2 1 R12
+O3 1 R13 2 A213
+C4 1 R14 2 A214 3 D3214
+O5 4 R45 1 A145 2 D2345
+O6 4 R46 5 A546 3 D2456
+%
+
+# Masses
+MASS = C O O C O O
+
+# Select PES library
+PES = $LIB
+
+# mbCO2
+REF1 = $REF
+
+# Select BFGS optimization
+STAT_OPT = GRADIENT
+
+# Set gradient norm tolerance 
+STAT_TOL = 1e-2
+STAT_MAX_ITER = 100000
+
+# Calculate frequencies after optimization
+CALC_FREQ
+HESS_STEP = 0.005
+GRAD_STEP = 1e-6
+CALC_RECT
+
+# Print verbose optimization output
+STAT_VERBOSE

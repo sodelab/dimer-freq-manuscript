@@ -1,0 +1,55 @@
+
+JOBTYPE = JOBTYPE_VSCF
+
+# Use Z-matrix coordinate system
+COORD = ZMAT
+%ZMAT
+C1
+O2 1 R12
+O3 1 R13 2 A213
+C4 1 R14 2 A214 3 D3214
+O5 4 R45 1 A145 2 D2345
+O6 4 R46 5 A546 3 D2456
+%
+
+# Masses
+MASS = C O O C O O
+
+# Transform ZMAT coordinates
+# to normal coordinates
+COORD_TRANS = NC_TRANS
+
+# Use Eckart frame
+# Ref. geometry is equilibrium geometry
+# (all normal coordinate displacements = 0)
+USE_ECKART_FRAME
+REF_ECKART = 0 0 0 0 0 0 0 0 0 0 0 0
+
+# Select PES
+PES = $LIB 
+
+# Define 1D DVR bases
+Q1  = AC HO 20 -5 5
+Q2  = AC HO 20 -5 5
+Q3  = AC HO 20 -5 5
+Q4  = AC HO 20 -5 5
+Q5  = FX HO 20 -5 5
+Q6  = FX HO 20 -5 5
+Q7  = FX HO 20 -5 5
+Q8  = FX HO 20 -5 5
+Q9  = FX HO 20 -5 5
+Q10 = FX HO 20 -5 5
+Q11 = FX HO 20 -5 5
+Q12 = FX HO 20 -5 5
+
+# VSCF parameters
+# Calculate all 0 and 1 quantum states
+TARGET_MAXV = 2
+
+# Expand all Hamiltonian terms to 
+# 3-body (exact)
+EXPANSION = 3,3,3,3,3,3,3
+REF1 = 0 0 0 0 0 0 0 0 0 0 0 0
+# Set VSCF energy convergence tolerance (cm-1)
+VSCF_CONV = 1e-6
+

@@ -32,3 +32,6 @@
 *.app
 *.x
 
+*.aux
+*.pdf
+*.synctex.gz

@@ -1,0 +1,11 @@
+
+# coordinate files
+*.xyz
+
+.DS_Store
+*.hs
+*.txt
+
+atomic
+mass
+nmode
