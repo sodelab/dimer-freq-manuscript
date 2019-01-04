@@ -3,8 +3,8 @@
 #directories
 TOP=`pwd`/..
 
-mkdir supp
-cp common/info.tex supp/info.tex
+#mkdir supp
+#cp common/info.tex supp/info.tex
 
 #functions
 round() {
@@ -18,6 +18,12 @@ round() {
       echo $1
     fi
 }
+
+##################################################################################################################################################
+
+#
+# Extract vibrational frequencies
+#
 
 #harmonic frequencies
 MONOMER_HARM=( `tail -4 harm/monomer/frequencies.txt | awk '{print $1}'` )
@@ -97,9 +103,15 @@ SINDO_INTRA_3MR_VMP2=( `grep "E(VPT2)-E0" sindo/dimer-intra/3MR/sindo.out | awk 
 SINDO_INTRA_3MR_VCI=( `grep "E(VCI)-E0" sindo/dimer-intra/3MR/sindo.out | awk '{print $NF}'` )
 
 #nitrogen frequencies
-NITROGEN_INTER_VSCF=( `grep -A 16 '  VSCF  ' nitrogen/vscf/nitrogen-vscf.out | tail -15 | awk '{print $NF}'` )
-NITROGEN_INTER_VMP2=( `grep -A 16 '  VMP2  ' nitrogen/vmp2/nitrogen-vmp2.out | tail -15 | awk '{print $NF}'` )
-NITROGEN_INTER_VCI=( `tail -50 nitrogen/vci/nitrogen-vci.out | grep -A 31 'E-E0' | tail -30 | awk '{print $4}'` )
+NITROGEN_INTER_VSCF=( `grep -A 16 '  VSCF  ' nitrogen/vscf/nitrogen-vscf.out | tail -15 | awk '{print $NF}' | tail -14` )
+NITROGEN_INTER_VMP2=( `grep -A 16 '  VMP2  ' nitrogen/vmp2/nitrogen-vmp2.out | tail -15 | awk '{print $NF}' | tail -14` )
+NITROGEN_INTER_VCI=( `tail -50 nitrogen/vci/nitrogen-vci.out | grep -A 31 'E-E0' | tail -30 | awk '{print $4}' | tail -29` )
+
+##################################################################################################################################################
+
+#
+# Extract vibrational states
+#
 
 #mavi vscf and vmp2 states
 MAVI_MONOMER_1MR_STATES=( "1000" "0100" "0010" "0001" )
@@ -127,6 +139,17 @@ MAVI_INTRA_3MR_STATES=( `head -52 mavi/dimer-intra/3MR/vci.mavi | tail -50 | awk
 SINDO_INTRA_1MR_STATES=( `grep -A 1000 'ENTER VCI MODULE' sindo/dimer-intra/1MR/sindo.out | grep '> STATE' | awk '{print $4 $5 $6 $7 $8 $9 $10 $11}' | tail -49` )
 SINDO_INTRA_2MR_STATES=( `grep -A 1000 'ENTER VCI MODULE' sindo/dimer-intra/2MR/sindo.out | grep '> STATE' | awk '{print $4 $5 $6 $7 $8 $9 $10 $11}' | tail -49` )
 SINDO_INTRA_3MR_STATES=( `grep -A 1000 'ENTER VCI MODULE' sindo/dimer-intra/3MR/sindo.out | grep '> STATE' | awk '{print $4 $5 $6 $7 $8 $9 $10 $11}' | tail -49` )
+
+NITROGEN_VSCF_STATES=( `grep -A 16 '  VSCF  ' nitrogen/vscf/nitrogen-vscf.out | tail -15 | awk '{print $2 $3 $4 $5}' | tail -14` )
+NITROGEN_VMP2_STATES=( `grep -A 16 '  VMP2  ' nitrogen/vmp2/nitrogen-vmp2.out | tail -15 | awk '{print $2 $3 $4 $5}' | tail -14` )
+NITROGEN_VCI_STATES=( `tail -50 nitrogen/vci/nitrogen-vci.out | grep -A 31 'E-E0' | tail -30 | awk '{print $7 $8 $9 $10}' | tail -29` )
+
+##################################################################################################################################################
+
+
+#
+# Monomer frequencies
+#
 
 declare -a mm1scf; declare -a mm2scf; declare -a mm3scf
 declare -a mm1mp2; declare -a mm2mp2; declare -a mm3mp2
@@ -217,6 +240,11 @@ sed -i '' "s,\?monomer-VSCF\?,${mvscf}," supp/info.tex
 sed -i '' "s,\?monomer-VMP2\?,${mvmp2}," supp/info.tex
 sed -i '' "s,\?monomer-VCI\?,${mvci}," supp/info.tex
 
+##################################################################################################################################################
+
+#
+# Intramolecular dimer frequencies
+#
 
 declare -a md1scf; declare -a md2scf; declare -a md3scf
 declare -a md1mp2; declare -a md2mp2; declare -a md3mp2
@@ -298,18 +326,81 @@ done
 #BUGBUGBUGBUG 
 #1MR,2MR,3MR VCI states not necessarily in same order
 #THis is probably OK. But should double check
-dvci=""
+count=0
+dvci1=""
+dvci2=""
 for i in "${!SINDO_INTRA_3MR_STATES[@]}"; do
-    dvci+="\$ \\\\nu_{${SINDO_INTRA_3MR_STATES[$i]}} \$ \&"
-    dvci+=" `round ${md1vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
-    dvci+=" `round ${sd1vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
-    dvci+=" `round ${md2vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
-    dvci+=" `round ${sd2vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
-    dvci+=" `round ${md3vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
-    dvci+=" `round ${sd3vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \\\\\\\\ "
+    if [[ $count -lt 25  ]]; then 
+        dvci1+="\$ \\\\nu_{${SINDO_INTRA_3MR_STATES[$i]}} \$ \&"
+        dvci1+=" `round ${md1vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci1+=" `round ${sd1vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci1+=" `round ${md2vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci1+=" `round ${sd2vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci1+=" `round ${md3vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci1+=" `round ${sd3vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \\\\\\\\ "
+    else
+        dvci2+="\$ \\\\nu_{${SINDO_INTRA_3MR_STATES[$i]}} \$ \&"
+        dvci2+=" `round ${md1vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci2+=" `round ${sd1vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci2+=" `round ${md2vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci2+=" `round ${sd2vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci2+=" `round ${md3vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \&"
+        dvci2+=" `round ${sd3vci[${SINDO_INTRA_3MR_STATES[$i]}]}` \\\\\\\\ "
+    fi
+    count=$((count+1))
 done
 #BUGBUGBUGBUG
 
 sed -i '' "s,\?intra-VSCF\?,${dvscf}," supp/info.tex
 sed -i '' "s,\?intra-VMP2\?,${dvmp2}," supp/info.tex
-sed -i '' "s,\?intra-VCI\?,${dvci}," supp/info.tex
+sed -i '' "s,\?intra-VCI-1\?,${dvci1}," supp/info.tex
+sed -i '' "s,\?intra-VCI-2\?,${dvci2}," supp/info.tex
+
+
+##################################################################################################################################################
+
+#
+# Intermolecular dimer frequencies
+#
+
+declare -a nscf; declare -a nmp2; declare -a nvci
+
+for i in "${!NITROGEN_VCI_STATES[@]}"; do 
+    nscf["${NITROGEN_VCI_STATES[$i]}"]="---"
+    nmp2["${NITROGEN_VCI_STATES[$i]}"]="---"
+    nvci["${NITROGEN_VCI_STATES[$i]}"]="---"
+done
+
+for i in "${!NITROGEN_VSCF_STATES[@]}"; do
+    nscf[${NITROGEN_VSCF_STATES[$i]}]=${NITROGEN_INTER_VSCF[$i]}
+done
+
+for i in "${!NITROGEN_VMP2_STATES[@]}"; do
+    nmp2[${NITROGEN_VMP2_STATES[$i]}]=${NITROGEN_INTER_VMP2[$i]}
+done
+
+for i in "${!NITROGEN_VCI_STATES[@]}"; do
+    nvci[${NITROGEN_VCI_STATES[$i]}]=${NITROGEN_INTER_VCI[$i]}
+done
+
+
+count=0
+nitro=""
+nitro2=""
+for i in "${!NITROGEN_VCI_STATES[@]}"; do
+    if [[ $count -lt 30  ]]; then 
+        nitro+="\$ \\\\nu_{${NITROGEN_VCI_STATES[$i]}} \$ \&"
+        nitro+=" `round ${nscf[${NITROGEN_VCI_STATES[$i]}]}` \&"
+        nitro+=" `round ${nmp2[${NITROGEN_VCI_STATES[$i]}]}` \&"
+        nitro+=" `round ${nvci[${NITROGEN_VCI_STATES[$i]}]}` \\\\\\\\ "
+    else
+        echo "$count"
+        nitro2+="\$ \\\\nu_{${NITROGEN_VCI_STATES[$i]}} \$ \&"
+        nitro2+=" `round ${nscf[${NITROGEN_VCI_STATES[$i]}]}` \&"
+        nitro2+=" `round ${nmp2[${NITROGEN_VCI_STATES[$i]}]}` \&"
+        nitro2+=" `round ${nvci[${NITROGEN_VCI_STATES[$i]}]}` \\\\\\\\  "
+    fi
+    count=$((count+1))
+done
+
+sed -i '' "s,\?inter\?,${nitro}," supp/info.tex

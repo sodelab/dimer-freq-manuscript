@@ -40,7 +40,7 @@ inline void site(const double* Ca, const double* Oa, double *Ba)
     Ba[1] = vector[1]*msite+Ca[1];
     Ba[2] = vector[2]*msite+Ca[2];
     
-    delete vector;
+    delete []vector;
     
     return;
 }

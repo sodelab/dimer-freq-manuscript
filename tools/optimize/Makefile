@@ -5,22 +5,23 @@
 
 OPT = optimize
 
-CPP = gcc
+CPP = g++
 OP = -O0
 CPPFLAGS =
 USERLIB = -L../library
-LIB = -lstdc++ -lgsl -lgslcblas -fopenmp -lmbCO2
+INC = -I/opt/local/include
+#LIB = -lstdc++ -lgsl -lgslcblas -fopenmp -lmbCO2
+LIB = -L/opt/local/lib -lstdc++ -lgsl -lgslcblas -lmbCO2
 
 SRC = $(wildcard *.cpp)
-INC = $(wildcard *.h)
 OBJ = $(SRC:.cpp=.o)
 
 all: $(OPT).x 
 
 $(OPT).x: $(OPT).cpp
 	$(CPP) -c io-xyz.cpp -o io-xyz.o
-	$(CPP) $(LIB) -c $(OPT).cpp -o $(OPT).o
-	$(CPP) $(CPPFLAGS) $(OP) io-xyz.o $(OPT).o $(LIB) $(USERLIB) -o $(OPT).x
+	$(CPP) $(INC) $(LIB) -c $(OPT).cpp -o $(OPT).o
+	$(CPP) $(INC) $(CPPFLAGS) $(OP) io-xyz.o $(OPT).o $(LIB) $(USERLIB) -o $(OPT).x
 
 clean: 
 	rm -f *.o *.x

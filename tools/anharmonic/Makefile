@@ -4,12 +4,11 @@
 
 
 CPP = g++
-#CPPFLAGS = -O0 -fopenmp -llapack -lm -lmbCO2 -Wl,-rpath,/Users/oosode/Documents/Research/co2-dimer-freq/tools/library
 CPPFLAGS = -O0 -fopenmp -llapack -lm -lmbCO2
+#CPPFLAGS = -O0 -llapack -lm -lmbCO2
 USERLIB = -L../library
 
 SRC = $(wildcard *.cpp)
-#INC = $(wildcard *.h)
 OBJ = $(SRC:.cpp=.o)
 
 install: $(OBJ)

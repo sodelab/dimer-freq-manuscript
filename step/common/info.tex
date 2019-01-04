@@ -13,6 +13,7 @@
 \usepackage{booktabs}
 \usepackage{color,soul}
 \usepackage{braket}
+\usepackage{float}
 
 %\usepackage{authblk}
 
@@ -54,9 +55,9 @@
 \maketitle
 
 \section[S1]{Quartic Force Fields}
-%\section{\label{sec:qff}S1 Quartic Force Fields}
+The harmonic, cubic, and quartic force constants for the quartic force field (QFF) used for the CO$_2$ monomer and the intramolecular motions of the CO$_2$ dimer are shown in Tables \ref{table:qff_monomer} and \ref{table:qff_dimer}. The derivatives were obtained numerically with the central difference approximation and a step size of $5.0 \times10^{-3}$ \AA. Due to the symmetry in the monomer and dimer, some of the force constants are equivalent, although they appear in the tables as unique values. 
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \caption{The quartic force field of the CO$_2$ monomer determined with the \emph{mb}CO2 potential.}
 \label{table:qff_monomer}
@@ -89,14 +90,114 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 \end{ruledtabular}
 \end{table}
 
+\begin{table}[H]
+\centering
+\caption{The quartic force field of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_dimer-1mr}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+\hline \Tstrut
+?dimer-QFF-1MR?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
 
-\section{\label{sec:vibrations}S2 Vibrational Frequencies}
+%\begin{table}[H]
+%\centering
+%\caption{The 2MR harmonic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+%\label{table:qff_dimer-2mr-h}
+%\begin{ruledtabular}
+%\begin{tabular}{cccccc}
+%Force constant & Value      &  & Force constant & Value      &    \\
+%%\begin{tabular}{ccc|ccc}
+%%Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+%\hline \Tstrut
+%?dimer-QFF-2MR-H?
+%\end{tabular}
+%\end{ruledtabular}
+%\end{table}
 
+\begin{table}[H]
+\centering
+\caption{The 2MR symmetric quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_dimer-2mr-q1}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value      &  & Force constant & Value      &    \\
+%\begin{tabular}{ccc|ccc}
+%Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+\hline \Tstrut
+?dimer-QFF-2MR-Q1?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
 
+\begin{table}[H]
+\centering
+\caption{The 2MR cubic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_dimer-2mr-t}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value      &  & Force constant & Value      &    \\
+%\begin{tabular}{ccc|ccc}
+%Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+\hline \Tstrut
+?dimer-QFF-2MR-C?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{The 2MR asymmetric quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_dimer-2mr-q2}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value      &  & Force constant & Value      &    \\
+%\begin{tabular}{ccc|ccc}
+%Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+\hline \Tstrut
+?dimer-QFF-2MR-Q2?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{The 3MR cubic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_dimer-3mr-c}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value      &  & Force constant & Value      &    \\
+%\begin{tabular}{ccc|ccc}
+%Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+\hline \Tstrut
+?dimer-QFF-3MR-C?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{The 3MR quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_dimer-3mr-q}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value      &  & Force constant & Value      &    \\
+%\begin{tabular}{ccc|ccc}
+%Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+\hline \Tstrut
+?dimer-QFF-3MR-Q?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\section[S2]{\label{sec:vibrations}Vibrational Frequencies}
 
 \subsection{\label{sec:monomer-freq}CO$_2$ Monomer}
 
-\begin{table}[b]
+\begin{table}[H]
 \caption{The vibrational energy levels for the CO$_2$ monomer obtained at the harmonic approximation and VSCF approximations with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
 \begin{ruledtabular}
 \begin{tabular}{lccccccc}
@@ -109,7 +210,7 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 \label{table:monomer-vscf}
 \end{table}  
 
-\begin{table}[b]
+\begin{table}[h]
 \caption{The vibrational energy levels for the CO$_2$ monomer obtained at the harmonic approximation and VMP2 approximations with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
 \begin{ruledtabular}
 \begin{tabular}{lccccccc}
@@ -122,7 +223,7 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 \label{table:monomer-vmp2}
 \end{table}
 
-\begin{table}[b]
+\begin{table}[H]
     \caption{The vibrational configuration interaction energy levels for the CO$_2$ monomer obtained at the quartic force field (QFF) and Gauss-Hermite quadrature (Grid) approximations with one-, two- and three-mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
 \begin{ruledtabular}
 \begin{tabular}{lccccccc}
@@ -137,7 +238,7 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 
 \subsection{\label{sec:dimer-freq}CO$_2$ Dimer}
 
-\begin{table}[b]
+\begin{table}[H]
 \caption{The vibrational energy levels for the CO$_2$ dimer obtained at the VSCF approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
 \begin{ruledtabular}
 \begin{tabular}{lccccccc}
@@ -150,7 +251,7 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 \label{table:intra-vscf}
 \end{table}
 
-\begin{table}[b]
+\begin{table}[H]
 \caption{The vibrational energy levels for the CO$_2$ dimer obtained at the VMP2 approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
 \begin{ruledtabular}
 \begin{tabular}{lccccccc}
@@ -164,34 +265,59 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 \end{table}
 
 
-\begin{table}[b]
+\begin{table}[H]
 \caption{The vibrational energy levels for the CO$_2$ dimer obtained at the VCI approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
 \begin{ruledtabular}
 \begin{tabular}{lccccccc}
     & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
   Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
 \hline \Tstrut
-?intra-VCI?
+?intra-VCI-1?
 \end{tabular}
 \end{ruledtabular}
-\label{table:intra-vci}
+\label{table:intra-vci-1}
 \end{table}
 
 
+\begin{table}[b]
+\caption{Continued table. The vibrational energy levels for the CO$_2$ dimer obtained at the VCI approximation with one, two and three mode representations (1MR, 2MR and 3MR). Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccccccc}
+    & QFF &  Grid & QFF & Grid & QFF & Grid   \\  
+  Mode & 1MR & 1MR & 2MR & 2MR & 3MR & 3MR   \\ 
+\hline \Tstrut
+?intra-VCI-2?
+\end{tabular}
+\end{ruledtabular}
+\label{table:intra-vci-2}
+\end{table}
 
-\section{\label{sec:reproduce}S3 Accessibility and Reproducibility}
+
+\begin{table}[H]
+\caption{The intermolecular vibrational energy levels for the CO$_2$ dimer obtained at the VSCF, VMP2, and VCI approximations. Values are shown in cm$^{-1}$.}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+  Mode & VSCF & VMP2 & VCI    \\ 
+\hline \Tstrut
+?inter?
+\end{tabular}
+\end{ruledtabular}
+\label{table:inter}
+\end{table}
+
+%\section{\label{sec:reproduce}S3 Accessibility and Reproducibility}
+\section[S3]{\label{sec:reproduce}Accessibility and Reproducibility}
 
 
-
-\section*{\label{sec:level1}Supplementary Material}
-See supplementary material for the complete QFF force constants, VSCF, VMP2 and VCI vibrational frequencies and CI coefficients. 
+%\section*{\label{sec:level1}Supplementary Material}
+%See supplementary material for the complete QFF force constants, VSCF, VMP2 and VCI vibrational frequencies and CI coefficients. 
 
 
 %\input acknowledgement.tex   % input acknowledgement
 
 \bibliographystyle{apsrev4-1}
 
-\bibliography{anharmonic_v6}
+\bibliography{anharmonic_v8}
 
 %\bibliography{aipsamp}
 \end{document}
