@@ -7,7 +7,7 @@ SINDO=$TOP/tools/sindo
 MKRPT=$SINDO/bin/mkrpt
 RPTSX=$SINDO/bin/rpt2sx
 SINDO=$SINDO/bin/sindo
-EVAL=$TOP/tools/eval/eval-pot.x
+EVAL=$TOP/tools/evaluate/eval-pot.x
 
 mkdir -p sindo
 
