@@ -55,9 +55,23 @@
 \maketitle
 
 \section[S1]{Quartic Force Fields}
-The harmonic, cubic, and quartic force constants for the quartic force field (QFF) used for the CO$_2$ monomer and the intramolecular motions of the CO$_2$ dimer are shown in Tables \ref{table:qff_monomer} and \ref{table:qff_dimer}. The derivatives were obtained numerically with the central difference approximation and a step size of $5.0 \times10^{-3}$ \AA. Due to the symmetry in the monomer and dimer, some of the force constants are equivalent, although they appear in the tables as unique values. 
+The harmonic ($h_{ij}$), cubic ($t_{ijk}$), and quartic ($u_{ijkl}$) force constants for the quartic force field (QFF) used for the CO$_2$ monomer are shown in Table \ref{table:qff_monomer}. For the dimer intramolecular motions, the QFF parameters are represented in Tables \ref{table:qff_dimer-1mr} through \ref{table:qff_dimer-3mr-q}. Here, each table represents type of force constant at a specific mode representation of the dimer vibrations. For all the QFF tables, the derivatives were obtained numerically with the central difference approximation and a step size of $5.0 \times10^{-3}$ \AA.  Also, only force constants with absolute values larger than $1\times10^{-3}$ units are shown in the tables. %The monomer and dimer symmetry is ignored Due to the symmetry in the monomer and dimer, some of the force constants are equivalent, although they appear in the tables as unique values.
+For the monomer, the force constant subscripts refer to the degenerate bending modes (1 and 2), the symmetric stretching mode (3), and the asymmetric stretching mode (4). It should be noted that this notation is different from the more traditional notation found in the manuscript, where the 1 subscript refers to the symmetric stretching mode, the 2 and $\bar{2}$ refer to the two degenerate bending modes and the 3 subscript refers to the asymmetric stretching mode. The subscripts for the dimer force constants are listed 1 through 8 for the dimer and refer to the intramolecular motions as in the manuscript. 
 
-\begin{table}[H]
+\begin{table}[]
+\centering
+\caption{The quartic force field of the CO$_2$ monomer determined with the \emph{mb}CO2 potential.}
+\label{table:qff_monomer}
+\begin{ruledtabular}
+\begin{tabular}{cccccc}
+Force constant & Value        & Unit  & Force constant & Value        & Unit     \\
+ ?monomer-QFF?
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\iffalse
+\begin{table}[]
 \centering
 \caption{The quartic force field of the CO$_2$ monomer determined with the \emph{mb}CO2 potential.}
 \label{table:qff_monomer}
@@ -89,10 +103,11 @@ $u_{2213}=u_{\bar{2}\bar{2}13}$    & $-0.011696$ & $E_{\rm h}\ {\rm \AA}^{-4}\ {
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+\fi
 
-\begin{table}[H]
+\begin{table}[]
 \centering
-\caption{The quartic force field of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\caption{The 1MR quartic force field of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
 \label{table:qff_dimer-1mr}
 \begin{ruledtabular}
 \begin{tabular}{cccccc}
@@ -118,9 +133,9 @@ Force constant & Value        & Unit  & Force constant & Value        & Unit    
 %\end{ruledtabular}
 %\end{table}
 
-\begin{table}[H]
+\begin{table}[]
 \centering
-\caption{The 2MR symmetric quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\caption{The 2MR symmetric quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential. Values are shown in $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$.}
 \label{table:qff_dimer-2mr-q1}
 \begin{ruledtabular}
 \begin{tabular}{cccccc}
@@ -135,7 +150,7 @@ Force constant & Value      &  & Force constant & Value      &    \\
 
 \begin{table}[H]
 \centering
-\caption{The 2MR cubic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\caption{The 2MR cubic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential. Values are shown in $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$.}
 \label{table:qff_dimer-2mr-t}
 \begin{ruledtabular}
 \begin{tabular}{cccccc}
@@ -150,7 +165,7 @@ Force constant & Value      &  & Force constant & Value      &    \\
 
 \begin{table}[H]
 \centering
-\caption{The 2MR asymmetric quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\caption{The 2MR asymmetric quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential. Values are shown in $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$.}
 \label{table:qff_dimer-2mr-q2}
 \begin{ruledtabular}
 \begin{tabular}{cccccc}
@@ -165,7 +180,7 @@ Force constant & Value      &  & Force constant & Value      &    \\
 
 \begin{table}[H]
 \centering
-\caption{The 3MR cubic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\caption{The 3MR cubic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential. Values are shown in $E_{\rm h}\ {\rm \AA}^{-3}\ {\rm u}^{-3/2}$.}
 \label{table:qff_dimer-3mr-c}
 \begin{ruledtabular}
 \begin{tabular}{cccccc}
@@ -180,7 +195,7 @@ Force constant & Value      &  & Force constant & Value      &    \\
 
 \begin{table}[H]
 \centering
-\caption{The 3MR quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential.}
+\caption{The 3MR quartic force constants of the intramolecular vibrations of the CO$_2$ dimer determined with the \emph{mb}CO2 potential. Values are shown in $E_{\rm h}\ {\rm \AA}^{-4}\ {\rm u}^{-2}$.}
 \label{table:qff_dimer-3mr-q}
 \begin{ruledtabular}
 \begin{tabular}{cccccc}

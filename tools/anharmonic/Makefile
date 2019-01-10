@@ -5,17 +5,16 @@
 
 CPP = g++
 CPPFLAGS = -O0 -fopenmp -llapack -lm -lmbCO2
-#CPPFLAGS = -O0 -llapack -lm -lmbCO2
 USERLIB = -L../library
 
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 
 install: $(OBJ)
-	$(CPP) $(USERLIB) $(CPPFLAGS) $(OBJ) -o anharmonic.x
+	$(CPP) $(OBJ) $(USERLIB) $(CPPFLAGS) -o anharmonic.x
 
 clean: 
 	rm -f *.o anharmonic.x
 
 %.o:%.cpp
-	$(CPP) $(CPPFLAGS) $(USERLIB) -c $<
+	$(CPP) -c $<
