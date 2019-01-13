@@ -22,8 +22,8 @@ cp $TOP/step/harm/dimer/nitrogen.dat .
 ref=`cat nitrogen.dat`
 
 #edit files for variable parameters
-sed -i '' "s,\$LIB,${LIB}," nitrogen-stat.job
-sed -i '' "s,\$REF,${ref}," nitrogen-stat.job
+sed -i "s,\$LIB,${LIB}," nitrogen-stat.job
+sed -i "s,\$REF,${ref}," nitrogen-stat.job
 
 $EXE nitrogen-stat.job > nitrogen-stat.out
 
@@ -36,7 +36,7 @@ cp $TOP/step/common/nitrogen-vib.job nitrogen-vscf.job
 cp ../stat/NC_TRANS .
 
 #edit files for variable parameters
-sed -i '' "s,\$LIB,${LIB}," nitrogen-vscf.job
+sed -i "s,\$LIB,${LIB}," nitrogen-vscf.job
 
 $EXE nitrogen-vscf.job > nitrogen-vscf.out
 
@@ -48,7 +48,7 @@ cp $TOP/step/common/nitrogen-vib.job nitrogen-vmp2.job
 cp ../stat/NC_TRANS .
 
 #edit files for variable parameters
-sed -i '' "s,\$LIB,${LIB}," nitrogen-vmp2.job
+sed -i "s,\$LIB,${LIB}," nitrogen-vmp2.job
 echo "# VMP2 parameters" >> nitrogen-vmp2.job
 echo "POST_VHF = VMP2"   >> nitrogen-vmp2.job
 echo "VCI_MAXV = 10"     >> nitrogen-vmp2.job 
@@ -64,7 +64,7 @@ cp $TOP/step/common/nitrogen-vib.job nitrogen-vci.job
 cp ../stat/NC_TRANS .
 
 #edit files for variable parameters
-sed -i '' "s,\$LIB,${LIB}," nitrogen-vci.job
+sed -i "s,\$LIB,${LIB}," nitrogen-vci.job
 echo "# VCI parameters"  >> nitrogen-vci.job
 echo "POST_VHF = VCI"    >> nitrogen-vci.job
 echo "VCI_MAXV = 10"     >> nitrogen-vci.job

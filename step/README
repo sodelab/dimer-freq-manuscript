@@ -1,0 +1,21 @@
+0. Compile programs
+
+1. Optimize monomer and dimer geometry
+
+2. Calculate harmonic frequencies and generate
+input files for anharmonic programs
+
+3. Run calculations with anharmonic programs
+
+a. MaVi code -- monomer 
+
+b. SINDO code -- monomer
+
+c. MaVi code -- dimer / intramolecular
+
+d. SINDO code -- dimer / intramolecular
+
+e. NITROGEN code -- dimer / intermolecular
+
+4. Filling tables
+

@@ -28,12 +28,12 @@ for n in {1..3} ; do
  cp $TOP/step/harm/$FRAG/sindo.inp .
 
  #edit files for variable parameters
- sed -i '' 's/$Natoms/3/' mkrpt.write.inp
- sed -i '' 's/$ModeSym/0,0,0,0/' mkrpt.write.inp
- sed -i '' "s/\$MR/${n}/" mkrpt.write.inp
- sed -i '' 's/$Nfree/4/' mkrpt.write.inp
- sed -i '' 's/$Linear/True/' mkrpt.write.inp
- sed -i '' 's/$Nbasis/11,11,11,11/' mkrpt.write.inp
+ sed -i 's/$Natoms/3/' mkrpt.write.inp
+ sed -i 's/$ModeSym/0,0,0,0/' mkrpt.write.inp
+ sed -i "s/\$MR/${n}/" mkrpt.write.inp
+ sed -i 's/$Nfree/4/' mkrpt.write.inp
+ sed -i 's/$Linear/True/' mkrpt.write.inp
+ sed -i 's/$Nbasis/11,11,11,11/' mkrpt.write.inp
 
  #write quadrature geometries as inp*
  $MKRPT < mkrpt.write.inp > mkrpt.write.out
@@ -53,7 +53,7 @@ for n in {1..3} ; do
  
  #read PES 
  cd ../; cp mkrpt.write.inp mkrpt.pes.inp
- sed -i '' 's/WRT/PES/' mkrpt.pes.inp
+ sed -i 's/WRT/PES/' mkrpt.pes.inp
  $MKRPT < mkrpt.pes.inp > mkrpt.out
 
  #generate pot files
@@ -62,7 +62,7 @@ for n in {1..3} ; do
 
  #generate sindo input
  cat ../../../common/sindo_${FRAG}_tail.inp >> sindo.inp 
- sed -i '' "s/\$MR/${n}/" sindo.inp
+ sed -i "s/\$MR/${n}/" sindo.inp
 
  #run sindo
  $SINDO < sindo.inp > sindo.out
@@ -90,12 +90,12 @@ cp $TOP/step/harm/$FRAG/nmode .
 cp $TOP/step/common/mkrpt_temp.inp mkrpt.write.inp
 
 #edit files for variable parameters
-sed -i '' 's/$Natoms/6/' mkrpt.write.inp
-sed -i '' 's/$ModeSym/0,0,0,0,0,0,0,0/' mkrpt.write.inp
-sed -i '' "s/\$MR/3/" mkrpt.write.inp
-sed -i '' 's/$Nfree/8/' mkrpt.write.inp
-sed -i '' 's/$Linear/False/' mkrpt.write.inp
-sed -i '' 's/$Nbasis/11,11,11,11,11,11,11,11/' mkrpt.write.inp
+sed -i 's/$Natoms/6/' mkrpt.write.inp
+sed -i 's/$ModeSym/0,0,0,0,0,0,0,0/' mkrpt.write.inp
+sed -i "s/\$MR/3/" mkrpt.write.inp
+sed -i 's/$Nfree/8/' mkrpt.write.inp
+sed -i 's/$Linear/False/' mkrpt.write.inp
+sed -i 's/$Nbasis/11,11,11,11,11,11,11,11/' mkrpt.write.inp
 
 #write quadrature geometries as inp*
 $MKRPT < mkrpt.write.inp > mkrpt.write.out
@@ -111,7 +111,7 @@ find . -name "inp.*" -exec rm {} \;
 
 #read PES 
 cp mkrpt.write.inp mkrpt.pes.inp
-sed -i '' 's/WRT/PES/' mkrpt.pes.inp
+sed -i 's/WRT/PES/' mkrpt.pes.inp
 $MKRPT < mkrpt.pes.inp > mkrpt.out
 
 #generate pot files
@@ -132,7 +132,7 @@ for n in {1..3} ; do
 
  #generate sindo input
  cat $TOP/step/common/sindo_${FRAG}_tail.inp >> sindo.inp
- sed -i '' "s/\$MR/${n}/" sindo.inp
+ sed -i "s/\$MR/${n}/" sindo.inp
 
  #run sindo
  $SINDO < sindo.inp > sindo.out
@@ -156,12 +156,12 @@ exit
  cp $TOP/step/harm/$FRAG/sindo.inp .
 
  #edit files for variable parameters
- sed -i '' 's/$Natoms/6/' mkrpt.write.inp
- sed -i '' 's/$ModeSym/0,0,0,0,0,0,0,0/' mkrpt.write.inp
- sed -i '' "s/\$MR/${n}/" mkrpt.write.inp
- sed -i '' 's/$Nfree/8/' mkrpt.write.inp
- sed -i '' 's/$Linear/False/' mkrpt.write.inp
- sed -i '' 's/$Nbasis/11,11,11,11,11,11,11,11/' mkrpt.write.inp
+ sed -i 's/$Natoms/6/' mkrpt.write.inp
+ sed -i 's/$ModeSym/0,0,0,0,0,0,0,0/' mkrpt.write.inp
+ sed -i "s/\$MR/${n}/" mkrpt.write.inp
+ sed -i 's/$Nfree/8/' mkrpt.write.inp
+ sed -i 's/$Linear/False/' mkrpt.write.inp
+ sed -i 's/$Nbasis/11,11,11,11,11,11,11,11/' mkrpt.write.inp
 
  #write quadrature geometries as inp*
  $MKRPT < mkrpt.write.inp > mkrpt.write.out
@@ -189,7 +189,7 @@ exit
  #read PES 
  #cd ../
  cp mkrpt.write.inp mkrpt.pes.inp
- sed -i '' 's/WRT/PES/' mkrpt.pes.inp
+ sed -i 's/WRT/PES/' mkrpt.pes.inp
  $MKRPT < mkrpt.pes.inp > mkrpt.out
 
  #generate pot files
@@ -198,7 +198,7 @@ exit
 
  #generate sindo input
  cat ../../../common/sindo_${FRAG}_tail.inp >> sindo.inp 
- sed -i '' "s/\$MR/${n}/" sindo.inp
+ sed -i "s/\$MR/${n}/" sindo.inp
 
  #run sindo
  $SINDO < sindo.inp > sindo.out
