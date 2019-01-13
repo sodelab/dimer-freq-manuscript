@@ -26,11 +26,11 @@ vibrational structure theory programs (MaVi, SINDO, and NITROGEN)
 
 Many of these are most likely already installed on your favorite machine. If not however, you'll need to install them along with the all three of the vibrational structure theory programs:
 
-```
-[MaVi](https://github.com/keceli/MaVi.git)
-[SINDO]()
-[NITROGEN](https://www.colorado.edu/nitrogen/)
-```
+
+[MaVi](https://github.com/keceli/MaVi.git)  
+[SINDO]()  
+[NITROGEN](https://www.colorado.edu/nitrogen/)  
+
 
 These three programs need to be placed in the [tools](tools) directory of the downloaded repository and installed individually. In the tools directory, there are four other directories each containing code that needs to be individually installed in the following order: `library`, `optimize`, `evaluate` and `anharmonic`. Once all of the programs are installed, proceed to the [step](step) directory to execute the project.
 
