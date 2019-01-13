@@ -44,13 +44,13 @@ This section describes how to install the project using Docker. If you'd prefer 
 
    `docker build . -t <MYIMAGE>`,
    
- where <MYIMAGE> is your chosen image name. The image may take a few minutes to build, as well as download and install all of the necessary software, including this [repository](), and the other vibrational structure theory programs. 
+   where <MYIMAGE> is your chosen image name. The image may take a few minutes to build, as well as download and install all      of the necessary software, including this [repository](), and the other vibrational structure theory programs. 
    
 3. To run the image, enter the following command:
 
    `docker run -it <MYIMAGE> bash`.
    
-The current project can be found in the `/container` folder. Using the command line, navigate to this folder and then proceed to the `step` directory. Here you should find a [README](step/README) with instructions on how to execute the project commands and generate the manuscript data.
+   The current project can be found in the `/container` folder. Using the command line, navigate to this folder and then          proceed to the `step` directory. Here you should find a [README](step/README) with instructions on how to execute the          project commands and generate the manuscript data.
 
 Enjoy!
 
