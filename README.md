@@ -1,6 +1,6 @@
 # SI for CO2 dimer anharmonic vibrations
 
-This project produces all of the data from the Anharmonic vibrational structure of the carbon dioxide dimer with a many-body potential energy surface journal article. The project solves the vibrational Schrodinger equation for the CO<sub>2</sub> monomer and dimer using vibration structure theory and a many-body potential energy surface.  
+This project produces all of the data from the Anharmonic vibrational structure of the carbon dioxide dimer with a many-body potential energy surface journal article. The project solves the vibrational Schrodinger equation for the CO<sub>2</sub> monomer and dimer using vibrational structure theory and a many-body potential energy surface.  
 
 ## Getting Started
 
