@@ -1,21 +1,42 @@
-0. Compile programs
+#
 
-1. Optimize monomer and dimer geometry
+The scripts to obtain the research data can be found in this step folder and are numbered sequentially 1-7. Steps 1-2 should be executed in order and before any of the other scripts are run. The scripts (3-5) can be run in any order, after both steps 1 and 2 are completed. The remaining steps (6-7) should be run in order and after at least on of the steps 3, 4, or 5 has completed.
 
-2. Calculate harmonic frequencies and generate
-input files for anharmonic programs
+The scripts can be executed on the command line using the following command:
 
-3. Run calculations with anharmonic programs
+   `./01.OPT.sh`, 
 
-a. MaVi code -- monomer 
+for instance. 
 
-b. SINDO code -- monomer
+## Descriptions
 
-c. MaVi code -- dimer / intramolecular
+Below are brief descriptions of what each script does.
 
-d. SINDO code -- dimer / intramolecular
+1. 01.OPT.sh
 
-e. NITROGEN code -- dimer / intermolecular
+This script optimizes the CO2 monomer and dimer geometry using the mbCO2 potential energy function. The starting geometry configurations can be found in the common folder in this directory. 
 
-4. Filling tables
+2. 02.FREQ.sh
+
+This script runs the `anharmonic.x` program, which calculates the harmonic frequencies and computes the QFF parameters for each of the optimized structures. In fact, four calculations are performed: (1) monomer, (2) dimer, (3) dimer intermolecular modes and (4) dimer intramolecular modes. The `anharmonic.x` program also produces the necessary input data for the MaVi, SINDO, and NITROGEN programs. 
+
+3. 03.MaVi.sh
+
+This script calculates the anharmonic vibrational frequencies for monomer and intramolecular frequencies for the dimer using a QFF potential with the MaVi software package. 
+
+4. 04.SINDO.sh
+
+This script computes the anharmonic vibrational frequencies for the monomer and the intramolecular frequencies for the dimer using a Gauss-Hermite quadrature potential with the SINDO software package. This step takes a significant amount of time to complete.
+
+5. 05.NITROGEN.sh
+
+This script calculates the anharmonic intermolecular vibrational frequencies for the dimer using general curvilinear coordinates in the NITROGEN software package. This step takes a significant amount of time to complete. 
+
+6. 06.TABLES-FC.sh
+
+This script obtains the QFF parameters used in the calculations and inserts them into a '.tex' file. 
+
+7. 07.TABLES-FREQ.sh
+
+This script obtains the vibrational frequencies for the monomer and dimer and inserts them into a '.tex' file. 
 
