@@ -236,9 +236,9 @@ for i in "${!SINDO_MONOMER_3MR_STATES[@]}"; do
 done
 #BUGBUGBUGBUG
 
-sed -i '' "s,\?monomer-VSCF\?,${mvscf}," supp/info.tex
-sed -i '' "s,\?monomer-VMP2\?,${mvmp2}," supp/info.tex
-sed -i '' "s,\?monomer-VCI\?,${mvci}," supp/info.tex
+sed -i  "s,\?monomer-VSCF\?,${mvscf}," supp/info.tex
+sed -i  "s,\?monomer-VMP2\?,${mvmp2}," supp/info.tex
+sed -i  "s,\?monomer-VCI\?,${mvci}," supp/info.tex
 
 ##################################################################################################################################################
 
@@ -351,10 +351,10 @@ for i in "${!SINDO_INTRA_3MR_STATES[@]}"; do
 done
 #BUGBUGBUGBUG
 
-sed -i '' "s,\?intra-VSCF\?,${dvscf}," supp/info.tex
-sed -i '' "s,\?intra-VMP2\?,${dvmp2}," supp/info.tex
-sed -i '' "s,\?intra-VCI-1\?,${dvci1}," supp/info.tex
-sed -i '' "s,\?intra-VCI-2\?,${dvci2}," supp/info.tex
+sed -i  "s,\?intra-VSCF\?,${dvscf}," supp/info.tex
+sed -i  "s,\?intra-VMP2\?,${dvmp2}," supp/info.tex
+sed -i  "s,\?intra-VCI-1\?,${dvci1}," supp/info.tex
+sed -i  "s,\?intra-VCI-2\?,${dvci2}," supp/info.tex
 
 
 ##################################################################################################################################################
@@ -403,4 +403,4 @@ for i in "${!NITROGEN_VCI_STATES[@]}"; do
     count=$((count+1))
 done
 
-sed -i '' "s,\?inter\?,${nitro}," supp/info.tex
+sed -i  "s,\?inter\?,${nitro}," supp/info.tex

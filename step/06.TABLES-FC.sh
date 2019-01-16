@@ -611,11 +611,11 @@ for (( i=0; i<=7; i++ )) ; do
 done
 
 
-sed -i '' "s,\?monomer-QFF\?,${mon}," supp/info.tex
-sed -i '' "s,\?dimer-QFF-1MR\?,${d1mr}," supp/info.tex
-sed -i '' "s,\?dimer-QFF-2MR-Q1\?,${d2mrQ1}," supp/info.tex
-sed -i '' "s,\?dimer-QFF-2MR-C\?,${d2mrC}," supp/info.tex
-sed -i '' "s,\?dimer-QFF-2MR-Q2\?,${d2mrQ2}," supp/info.tex
-sed -i '' "s,\?dimer-QFF-3MR-C\?,${d3mrC}," supp/info.tex
-sed -i '' "s,\?dimer-QFF-3MR-Q\?,${d3mrQ}," supp/info.tex
+sed -i  "s,\?monomer-QFF\?,${mon}," supp/info.tex
+sed -i  "s,\?dimer-QFF-1MR\?,${d1mr}," supp/info.tex
+sed -i  "s,\?dimer-QFF-2MR-Q1\?,${d2mrQ1}," supp/info.tex
+sed -i  "s,\?dimer-QFF-2MR-C\?,${d2mrC}," supp/info.tex
+sed -i  "s,\?dimer-QFF-2MR-Q2\?,${d2mrQ2}," supp/info.tex
+sed -i  "s,\?dimer-QFF-3MR-C\?,${d3mrC}," supp/info.tex
+sed -i  "s,\?dimer-QFF-3MR-Q\?,${d3mrQ}," supp/info.tex
 
