@@ -1,6 +1,6 @@
 
 
-MAVI=../../../../tools/mavi/install/MaVi
+MAVI=../../../../tools/MaVi/Debug/f.mavi
 
 mkdir -p mavi
 mkdir -p mavi/monomer
